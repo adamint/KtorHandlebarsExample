@@ -1,0 +1,30 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.4.0'
+    id 'application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+
+    // ktor server
+    def ktorVersion = "1.3.1"
+    implementation "io.ktor:ktor-server-core:$ktorVersion"
+    implementation "io.ktor:ktor-client-apache:$ktorVersion"
+    implementation "io.ktor:ktor-server-netty:$ktorVersion"
+
+    // handlebars
+    implementation("com.github.jknack:handlebars:4.1.2")
+    implementation("com.google.guava:guava:29.0-jre")
+    implementation("com.github.jknack:handlebars-guava-cache:4.1.2")
+}
+
+application {
+    mainClassName = "KtorExampleKt"
+}
